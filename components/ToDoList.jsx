@@ -63,7 +63,8 @@ const ToDoList = ({dark}) => {
     <div className='flex flex-col gap-6'>
       <div className={`${dark ? 'bg-slate-900 text-slate-200' : 'bg-white'} rounded p-3 h-[400px] flex flex-col justify-between `}>
         <div className='overflow-y-auto h-full task-scrolling'>
-          {todos.length > 0 ? '' : <p className='text-center text-gray-400'>No tasks</p>}
+          {todos.length === 'undefined' ? <p className='text-center text-gray-400'>No task added</p> : todos.length === 0 ? <p className='text-center text-gray-400'>No task added</p> : ''}
+
           {show === 'All' ? todos.map(todo => {
               return (
                 <div key={todo.id} className="flex p-5 justify-between border-b border-gray-200 ">
