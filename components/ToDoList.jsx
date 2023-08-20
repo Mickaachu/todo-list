@@ -19,7 +19,8 @@ const ToDoList = ({dark}) => {
   }, [todos])
 
   const ToggleCheck = (id, completed) => {
-    setTodos(currentTodo => {
+    if(todos) {
+       setTodos(currentTodo => {
       return currentTodo.map(todo => {
         if(todo.id === id) {
           return {
@@ -33,6 +34,8 @@ const ToDoList = ({dark}) => {
         }
       })
     })
+    }
+   
   }
   const AddItem = (input) => {
     setTodos(currentTodo => {
