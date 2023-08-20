@@ -9,9 +9,29 @@
   margin: 0;
   box-sizing: border-box;
   font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
 }
- 
-body {
-  background: #f5f5f5;
-  
+
+/* width */
+.task-scrolling::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.task-scrolling::-webkit-scrollbar-track {
+  background: #888;
+  border-radius: 5px;
+}
+
+/* Handle */
+.task-scrolling::-webkit-scrollbar-thumb {
+  background: #000;
+  background: linear-gradient(0deg, rgba(255,0,211,1) 0%, rgba(151,0,187,1) 42%, rgba(0,212,255,1) 100%);
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+.task-scrolling::-webkit-scrollbar-thumb:hover {
+  background: #555;
+  background: linear-gradient(0deg, rgba(255,99,222,1) 0%, rgba(178,73,203,1) 52%, rgba(58,163,185,1) 100%);;
 }
