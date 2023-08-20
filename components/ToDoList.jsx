@@ -63,7 +63,7 @@ const ToDoList = ({dark}) => {
     <div className='flex flex-col gap-6'>
       <div className={`${dark ? 'bg-slate-900 text-slate-200' : 'bg-white'} rounded p-3 h-[400px] flex flex-col justify-between `}>
         <div className='overflow-y-auto h-full task-scrolling'>
-          {todos.length === 0 && "No Todos Yet "}
+          {todos.length > 0 ? '' : <p className='text-center text-gray-400'>No tasks</p>}
           {show === 'All' ? todos.map(todo => {
               return (
                 <div key={todo.id} className="flex p-5 justify-between border-b border-gray-200 ">
@@ -107,7 +107,7 @@ const ToDoList = ({dark}) => {
           }
         </div>
         <div className='flex justify-between border-t border-gray-200  text-gray-500'>
-          <p className='text-sm'>{todos.length} items left</p>
+          <p className='text-sm'>{todos.length > 0  ? todos.length : '0'} items left</p>
           <div className=' hidden md:flex gap-4 '>
             <button className='text-sm hover:text-blue-400' onClick={() => setShow('All')}>All</button>
             <button className='text-sm hover:text-blue-400' onClick={() => setShow('Active')}>Active</button>
