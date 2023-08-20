@@ -5,18 +5,17 @@ import Image from 'next/image';
 
 const ToDoList = ({dark}) => {
   const [todos, setTodos] = useState(() => {
-    const localData = localStorage.getItem('todos')
-    return localData ? JSON.parse(localData) : []
+    if (typeof window !== 'undefined') {
+      const savedData = localStorage.getItem('todos')
+      const initialValue = JSON.parse(savedData)
+      return initialValue || []
+    }
   })
   const [show, setShow] = useState('All');
 
   useEffect(() => {
-    const localStorageDefined = window.localStorage !== undefined
-    if (localStorageDefined) {
-      const localData = localStorage.getItem('todos')
-      localData.setItem('todos', JSON.stringify(todos))
-    }
-    
+    localStorage.setItem('todos', JSON.stringify(todos))
+
   }, [todos])
 
   const ToggleCheck = (id, completed) => {
