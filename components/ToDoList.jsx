@@ -14,7 +14,7 @@ const ToDoList = ({dark}) => {
     const localStorageDefined = window.localStorage !== undefined
     if (localStorageDefined) {
       const localData = localStorage.getItem('todos')
-      localStorage.setItem('todos', JSON.stringify(todos))
+      localData.setItem('todos', JSON.stringify(todos))
     }
     
   }, [todos])
