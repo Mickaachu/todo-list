@@ -14,9 +14,10 @@ const ToDoList = ({dark}) => {
     const localStorageDefined = window.localStorage !== undefined
     if (localStorageDefined) {
       const localData = localStorage.getItem('todos')
-      localData.setItem('todos', JSON.stringify(todos))
+      setTodos(localData ? JSON.parse(localData) : [])
     }
-    localStorage.setItem('todos', JSON.stringify(todos))
+      // localData.setItem('todos', JSON.stringify(todos))
+    
   }, [todos])
 
   const ToggleCheck = (id, completed) => {
