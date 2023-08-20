@@ -34,7 +34,7 @@ const Theme = () => {
                 </button>
             </div>
             <div className='flex flex-col gap-2  max-w-[600px] w-full  '>
-                <ToDoList/>
+                <ToDoList dark={dark}/>
             </div>
         </div>
     </main>
