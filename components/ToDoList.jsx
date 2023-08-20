@@ -19,8 +19,7 @@ const ToDoList = ({dark}) => {
   }, [todos])
 
   const ToggleCheck = (id, completed) => {
-    if(todos) {
-       setTodos(currentTodo => {
+    setTodos(currentTodo => {
       return currentTodo.map(todo => {
         if(todo.id === id) {
           return {
@@ -34,8 +33,6 @@ const ToDoList = ({dark}) => {
         }
       })
     })
-    }
-   
   }
   const AddItem = (input) => {
     setTodos(currentTodo => {
@@ -66,7 +63,7 @@ const ToDoList = ({dark}) => {
     <div className='flex flex-col gap-6'>
       <div className={`${dark ? 'bg-slate-900 text-slate-200' : 'bg-white'} rounded p-3 h-[400px] flex flex-col justify-between `}>
         <div className='overflow-y-auto h-full task-scrolling'>
-          {todos.length === 'undefined' ? <p className='text-center text-gray-400'>No task added</p> : todos.length === 0 ? <p className='text-center text-gray-400'>No task added</p> : ''}
+          {todos & todos.length === 0 && <p className='text-center text-gray-400'>No tasks</p>}
 
           {show === 'All' ? todos.map(todo => {
               return (
