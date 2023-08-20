@@ -11,7 +11,12 @@ const ToDoList = ({dark}) => {
   const [show, setShow] = useState('All');
 
   useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos))
+    const localStorageDefined = window.localStorage !== undefined
+    if (localStorageDefined) {
+      const localData = localStorage.getItem('todos')
+      localStorage.setItem('todos', JSON.stringify(todos))
+    }
+    
   }, [todos])
 
   const ToggleCheck = (id, completed) => {
