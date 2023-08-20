@@ -1,7 +1,7 @@
 'use client'
 import {useState, useEffect} from 'react'
-import ToDoList from './ToDoList'
 import Image from 'next/image'
+import ToDoList from './ToDoList'
 
 const Theme = () => {
     const [dark, setDark] = useState(false)
@@ -15,6 +15,8 @@ const Theme = () => {
             document.body.classList.remove('bg-slate-950')
         }
     },[dark])
+
+    
   return (
     <main className="relative h-full ">
         <div className='relative w-screen h-[30vh]'>
@@ -32,7 +34,7 @@ const Theme = () => {
                 </button>
             </div>
             <div className='flex flex-col gap-2  max-w-[600px] w-full  '>
-                <ToDoList dark={dark}/>
+                <ToDoList/>
             </div>
         </div>
     </main>
